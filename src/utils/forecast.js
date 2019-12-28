@@ -9,11 +9,12 @@ const forecast = (latitude,longitude,callback) => {
             callback('No Forecast found, try another search!', undefined);
         }else{
             callback(undefined,{
+                summary: response.body.currently.summary,
                 temperature: response.body.currently.temperature,
                 precipProbability: response.body.currently.precipProbability
             });
         }
     });
 };
- 
+
 module.exports = forecast;

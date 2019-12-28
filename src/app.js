@@ -29,13 +29,13 @@ app.get('',(req,res) => {
 });
 app.get('/about',(req,res) => {
     res.render('about',{
-        title: 'About Page',
+        title: 'About Me',
         name: 'YASH SHUKLA'
     });
 });
 app.get('/help',(req,res) => {
     res.render('help',{
-        title: 'Help Page',
+        title: 'Help',
         name: 'YASH SHUKLA'
     });
 });
@@ -60,6 +60,7 @@ app.get('/weather',(req,res) => {
                 });
             }
             res.send({
+                summary: forecastData.summary,
                 temperature: forecastData.temperature,
                 precipProbability: forecastData.precipProbability,
                 address: req.query.address
