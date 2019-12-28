@@ -60,9 +60,8 @@ app.get('/weather',(req,res) => {
                 });
             }
             res.send({
-                summary: forecastData.summary,
-                temperature: forecastData.temperature,
-                precipProbability: forecastData.precipProbability,
+                forecast: forecastData,
+                location: data.location,
                 address: req.query.address
             });
         });

@@ -8,11 +8,7 @@ const forecast = (latitude,longitude,callback) => {
         }else if(response.body.error){
             callback('No Forecast found, try another search!', undefined);
         }else{
-            callback(undefined,{
-                summary: response.body.currently.summary,
-                temperature: response.body.currently.temperature,
-                precipProbability: response.body.currently.precipProbability
-            });
+            callback(undefined,response.body.daily.data[0].summary+' It is currently '+response.body.currently.temperature+' degrees out. There is a '+response.body.currently.precipProbability+'% chances of rain. Maximum temperature of the day was '+response.body.daily.data[0].temperatureHigh+' degrees and minimum temperature of the day was '+response.body.daily.data[0].temperatureLow+' degrees.');
         }
     });
 };
